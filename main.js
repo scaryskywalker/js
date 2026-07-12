@@ -1,41 +1,106 @@
-function getComputerChoice() {
-  value = Math.random();
+const user_emoji = document.querySelector(".emojis");
+const cpu_emoji = document.querySelector(".emojisCPU");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissor");
+let user_choice;
+let user_points = 0;
+let cpu_points = 0;
+const player_score = document.querySelector(".userScore");
+const cpu_score = document.querySelector(".cpuScore");
 
-  if (value >= 0 && value <= 0.33) {
-    return "rock";
-  } else if (value >= 0.33 && value <= 0.66) {
-    return "paper";
-  } else if (value >= 0.66 && value <= 1) {
-    return "scissor";
+function checkWinner(user, cpu) {
+  if (user == 5) {
+    alert("You wins!!! " + `Score : ${user} - ${cpu}`);
+    return false;
+  } else if (cpu == 5) {
+    alert("Cpu Wins!! " + `Score : ${user} - ${cpu}`);
+    return false;
+  }
+
+  return true;
+}
+
+function cpu_choice() {
+  let choice = Math.random();
+
+  if (choice >= 0 && choice <= 0.33) {
+    cpu_emoji.textContent = "✊";
+    return "Rock";
+  } else if (choice >= 0.33 && choice <= 0.66) {
+    cpu_emoji.textContent = "🖐";
+    return "Paper";
+  } else if (choice >= 0.66 && choice <= 1) {
+    cpu_emoji.textContent = "✌️";
+    return "Scissor";
   }
 }
 
-function gethumanChoice(choice) {
-  choice = prompt("Enter your choice");
-  return choice;
-}
+rock.addEventListener("click", function userRock() {
+  user_choice = "Rock";
+  user_emoji.textContent = "✊";
+  let cpu = cpu_choice();
+  if (cpu == "Paper") {
+    cpu_points += 1;
+  } else if (cpu == "Scissor") {
+    user_points += 1;
+  }
 
-const cpu = getComputerChoice();
+  let gamecontinue = checkWinner(user_points, cpu_points);
 
-const user = gethumanChoice();
-let total_human_points, total_cpu_points;
+  if (gamecontinue == false) {
+    user_points = 0;
+    cpu_points = 0;
+    player_score.textContent = 0;
+    cpu_score.textContent = 0;
+  }
 
-if (user == "rock" && cpu == "paper") {
-  console.log("Cpu chose Paper!! It wins");
-} else if (user == "paper" && cpu == "rock") {
-  console.log("You wins!! Cpu chose rock");
-} else if (user == "scissor" && cpu == "paper") {
-  console.log("You wins!! Cpu chose paper");
-} else if (user == "paper" && cpu == "scissor") {
-  console.log("Cpu chose Scissor!! It wins");
-} else if (user == "scissor" && cpu == "rock") {
-  console.log("Cpu chose rock!! It wins.");
-} else if (user == "rock" && cpu == "scissor") {
-  console.log("You wins!! Cpu chose scissor");
-} else if (user == "rock" && cpu == "rock") {
-  console.log("Draw!!");
-} else if (user == "scissor" && cpu == "scissor") {
-  console.log("Draw!!");
-} else if (user == "paper" && cpu == "paper") {
-  console.log("Draw");
-}
+  player_score.textContent = user_points;
+  cpu_score.textContent = cpu_points;
+});
+
+paper.addEventListener("click", function userPaper() {
+  user_choice = "Paper";
+  user_emoji.textContent = "🖐";
+  let cpu = cpu_choice();
+  if (cpu == "Scissor") {
+    cpu_points += 1;
+  } else if (cpu == "Rock") {
+    user_points += 1;
+  }
+
+  let gamecontinue = checkWinner(user_points, cpu_points);
+
+  if (gamecontinue == false) {
+    user_points = 0;
+    cpu_points = 0;
+    player_score.textContent = 0;
+    cpu_score.textContent = 0;
+  }
+
+  player_score.textContent = user_points;
+  cpu_score.textContent = cpu_points;
+});
+
+scissors.addEventListener("click", function userScissor() {
+  user_choice = "Scissor";
+  user_emoji.textContent = "✌️";
+  let cpu = cpu_choice();
+  if (cpu == "Rock") {
+    cpu_points += 1;
+  } else if (cpu == "Paper") {
+    user_points += 1;
+  }
+
+  let gamecontinue = checkWinner(user_points, cpu_points);
+
+  if (gamecontinue == false) {
+    user_points = 0;
+    cpu_points = 0;
+    player_score.textContent = 0;
+    cpu_score.textContent = 0;
+  }
+
+  player_score.textContent = user_points;
+  cpu_score.textContent = cpu_points;
+});

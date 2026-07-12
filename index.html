@@ -3,9 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning JS</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geomini:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="header">
+      <h1>Rock, paper, scissors</h1>
+    </div>
+    <div class="display">
+      <div class="cirlce">
+        <p class="emojis">&#128400;</p>
+      </div>
+      <div class="cirlce">
+        <p class="emojisCPU">&#128400;</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissor">scissors</button>
+    </div>
+
+    <div class="scoreboard">
+      <h2 class="human_score">
+        Total Points: <span class="userScore">0</span>
+      </h2>
+      <h2 class="cpu_score">Total Points: <span class="cpuScore">0</span></h2>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>

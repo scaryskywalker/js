@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+}
+
+/* css for header */
+
+.header {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header h1 {
+  color: white;
+  font-family: Geomini;
+}
+
+/* end */
+
+/* --------------------------------------------------------------------- */
+
+/* css for main display  */
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  margin-top: 50px;
+}
+
+.cirlce {
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 4px solid purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emojis {
+  font-size: 100px;
+  margin: 0;
+  /* transform: rotate(90deg); */
+  transform: scaleX(-1) rotate(-90deg);
+}
+
+.emojisCPU {
+  font-size: 100px;
+  margin: 0;
+  transform: rotate(-90deg);
+}
+
+/* end */
+
+/* -------------------------------------------------------------- */
+
+/* control section css */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 100px;
+}
+
+.controls button {
+  font-size: 20px;
+  font-family: "Geomini";
+  padding: 10px 20px;
+  border: none;
+  background: purple;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.scoreboard h2 {
+  /* margin: 0; */
+  font-family: "Geomini";
+}
